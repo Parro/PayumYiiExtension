@@ -1,8 +1,8 @@
 <?php
 namespace Payum\YiiExtension;
 
-\Yii::import('Payum\YiiExtension\TokenFactory', true);
-
+// \Yii::import('Payum\YiiExtensison\TokenFactory', true);
+require_once('TokenFactory.php');
 use Payum\Core\Bridge\PlainPhp\Security\HttpRequestVerifier;
 use Payum\Core\PaymentInterface;
 use Payum\Core\Registry\RegistryInterface;
@@ -12,7 +12,7 @@ use Payum\Core\Security\GenericTokenFactoryInterface;
 use Payum\Core\Security\HttpRequestVerifierInterface;
 use Payum\Core\Storage\StorageInterface;
 
-class PayumComponent extends \CApplicationComponent
+class PayumComponent extends \yii\base\Component
 {
     /**
      * @var PaymentInterface[]

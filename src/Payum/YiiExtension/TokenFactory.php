@@ -16,9 +16,17 @@ class TokenFactory extends AbstractTokenFactory
         $ampersand = '&';
         $schema = '';
 
+                \Yii::warning($path);
+                \Yii::warning($parameters);
+                $urlParameters = [trim($path,'/')];
+
+                foreach ($parameters as $key => $value) {
+                    $urlParameters[$key] = $value;
+                }
+                \Yii::warning($urlParameters);
         return
-            \Yii::app()->getRequest()->getHostInfo($schema).
-            \Yii::app()->createUrl(trim($path,'/'),$parameters, $ampersand)
+            \Yii::$app->getRequest()->getHostInfo($schema).
+            \Yii::$app->getUrlManager()->createUrl($urlParameters)
         ;
     }
 }
